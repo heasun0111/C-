@@ -30,14 +30,14 @@ int main()
 		return 0;
 	}
 
-	printf("ÄÄÇ»ÅÍ°¡ »ı°¢ÇÑ ¼ıÀÚµéÀº %i, %i, %iÀÔ´Ï´Ù.\n", guess[0], guess[1], guess[2]);
+	printf("ì»´í“¨í„°ê°€ ìƒê°í•œ ìˆ«ìë“¤ì€ %i, %i, %iì…ë‹ˆë‹¤.\n", guess[0], guess[1], guess[2]);
 
 	for (j = 1; j <= 9; j++) {
 		int confirm = 1;
 
 		void inputN();
 		{
-			printf("Ä«µåÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä:");
+			printf("ì¹´ë“œì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”:");
 			scanf("%d", &inputNum);
 		}
 
@@ -98,7 +98,7 @@ int main()
 				printf("%dS ", count_S);
 				printf("%dB\n", count_B);
 
-				printf("´ç½ÅÀÌ ÀÔ·ÂÇÑ ¼ıÀÚµéÀº %i, %i, %iÀÔ´Ï´Ù.\n", nums[0], nums[1], nums[2]);
+				printf("ë‹¹ì‹ ì´ ì…ë ¥í•œ ìˆ«ìë“¤ì€ %i, %i, %iì…ë‹ˆë‹¤.\n", nums[0], nums[1], nums[2]);
 			}
 		}
 
@@ -108,6 +108,3 @@ int main()
 
 
 }
-
-
-/* scanf ÀÌÈÄ·Î °úÁ¤ */
