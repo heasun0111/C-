@@ -11,38 +11,49 @@ int str_len(char str[])
 			num++;
 		}
 		if (str[i] == '\0') {
-			break;
+		    break;
 		}
 	}
 	return num;
 }
 
+int atoi(char *str)
+{
+    int number = 0;
+    int count = str_len(str)-1;
+    while (*str != '\0'){
+        //printf("num%d - 1 : %d\n", count, number);
+		number += ((int)*str - '0') * pow(10, count);
+		str++;
+		count--;
+		//printf("num%d - 2 : %d\n", count, number);
+	}
+	return number;
+}
+
 void reverse(char str[])
 {
 	char temp;
-	for (int j = 0; j <= str_len(str); j++) {
-		if (j < str_len(str) / 2) {
-			temp = str[j];
-			str[j] = str[str_len(str) - 1 - j];
-			str[str_len(str) - 1 - j] = temp;
-		}
-		if (j > str_len(str) / 2) {
-			break;
-		}
-	}
-	printf("reverse of str is %s\n", str);
+    for (int j = 0; j <= str_len(str); j++){
+        if(j < str_len(str)/2){
+            temp=str[j];
+            str[j]=str[str_len(str)-1-j];
+            str[str_len(str)-1-j]=temp;
+        }
+        if(j > str_len(str)/2){
+            break;
+        }
+    }
+    printf("reverse of str is %s\n", str);
 }
 
-int atoi(char str[])
+void itoa(int n, char str[] )
 {
-	int number;
-	for (int i = 0; i < str_len(str); i++)
-	{
-		printf("num%d - 1 : %d\n", i, number);
-		number += ((int)str - 48) * pow(10, i);
-		printf("num%d - 2 : %d\n", i, number);
+	for (int i = 0; i < str_len(str) ; i++) {
+	    printf("char1 is %c\n",str[i]);
+		str[i] = (int)( n / pow(10, str_len(str)-i)) % 10;
+		printf("char2 is %c\n",str[i]);
 	}
-	return number;
 }
 
 int main()
@@ -54,17 +65,19 @@ int main()
 	scanf("%s", str);
 
 	printf("# of letters of \"%s\" is %i\n", str, str_len(str));
-
+	
 	reverse(str);
-
+	
 	printf("Enter number: ");
 	scanf("%s", str);
+	
+	str_len(str);
+	
+	printf("Translated number of %s is %i\n", str, atoi(str) );
+	
+	printf("Enter number: ");
+	scanf("%d", &n);
+	itoa(n, str);
 
-	printf("Translated number of %s is %i\n", str, atoi(str));
-
-	//	printf("Enter number: ");
-	//	scanf("%d", &n);
-	//	itoa(n, str);
-
-	//	printf("%i is translated to string: \"%s\"\n", n, str);
+	printf("%i is translated to string: \"%s\"\n", n, str);
 }
